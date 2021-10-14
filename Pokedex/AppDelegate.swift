@@ -9,12 +9,18 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-       
+        if #available(iOS 15, *) {
+                   let appearance = UINavigationBarAppearance()
+                   appearance.configureWithTransparentBackground()
+                   UINavigationBar.appearance().standardAppearance = appearance
+                   UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                   appearance.backgroundColor  = #colorLiteral(red: 0.9411764706, green: 0.4705882353, blue: 0.3921568627, alpha: 1)
+        }
+        
         return true
     }
 

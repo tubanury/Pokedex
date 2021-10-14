@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let layout = UICollectionViewFlowLayout()
         let navController = UINavigationController(rootViewController: PokedexController(collectionViewLayout: layout))
         navController.navigationBar.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.4705882353, blue: 0.3921568627, alpha: 1)
+        navController.navigationBar.tintColor  = .white
         window?.rootViewController = navController
 
         window?.makeKeyAndVisible()
