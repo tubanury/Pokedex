@@ -25,7 +25,7 @@ class Service{
                                                      "height": pokemonRes.height as AnyObject,
                                                      "baseExperience": pokemonRes.baseExperience as AnyObject,
                                                     "imageUrl": pokemonRes.sprites?.frontDefault as AnyObject,
-                                                     "type": pokemonRes.types as AnyObject ]
+                                                    "type": pokemonRes.types?.first?.type?.name as AnyObject ]
                     let pokemon = Pokemon(id: id, dictionary: dictionary)
                     guard let imageUrl = pokemonRes.sprites?.frontDefault else {return}
                     self.fetchImage(withUrlString: imageUrl) { image in

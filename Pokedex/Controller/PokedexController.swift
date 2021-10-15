@@ -66,7 +66,7 @@ extension PokedexController: UICollectionViewDelegateFlowLayout{
         return UIEdgeInsets(top: 32, left: 8, bottom: 8, right: 8)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width - 36)/3
-        return CGSize(width: width, height: width)
+        let width = (view.frame.width - 36)/2
+        return CGSize(width: width, height: width/1.5)
     }
 }

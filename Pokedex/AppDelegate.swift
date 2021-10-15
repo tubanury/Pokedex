@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    appearance.configureWithTransparentBackground()
                    UINavigationBar.appearance().standardAppearance = appearance
                    UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                   appearance.backgroundColor  = #colorLiteral(red: 0.9411764706, green: 0.4705882353, blue: 0.3921568627, alpha: 1)
+                    appearance.backgroundColor  = .white
+            appearance.titleTextAttributes = [.font: UIFont.pixel17 ?? UIFont.systemFont(ofSize: 17)]
+        
         }
         
         return true
