@@ -7,4 +7,4 @@ The App downloads an array of Pokemon and displays them in a grid. The most domi
 It also recognizes long press and displays pokemon picture from their back.
 
 
-![pokdex1](https://github.com/Hepsiburada-mobil-iOS-Bootcamp/HW4_TubaYildiz/blob/main/ScreenShot/MainView.png)
+<img src="https://github.com/Hepsiburada-mobil-iOS-Bootcamp/HW4_TubaYildiz/blob/main/ScreenShot/MainView.png" width="250" height="480">
