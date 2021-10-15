@@ -25,8 +25,13 @@ class Service{
                                                      "height": pokemonRes.height as AnyObject,
                                                      "baseExperience": pokemonRes.baseExperience as AnyObject,
                                                     "imageUrl": pokemonRes.sprites?.frontDefault as AnyObject,
+                                                    "backImageUrl": pokemonRes.sprites?.backDefault as AnyObject,
                                                     "type": pokemonRes.types?.first?.type?.name as AnyObject ]
                     let pokemon = Pokemon(id: id, dictionary: dictionary)
+                    guard let backImageUrl = pokemonRes.sprites?.backDefault else {return}
+                    self.fetchImage(withUrlString: backImageUrl) { image in
+                        pokemon.backImage = image
+                    }
                     guard let imageUrl = pokemonRes.sprites?.frontDefault else {return}
                     self.fetchImage(withUrlString: imageUrl) { image in
                         pokemon.image = image
@@ -36,6 +41,7 @@ class Service{
                         }
                         completion(pokemons)
                     }
+                    
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

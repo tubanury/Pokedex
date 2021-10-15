@@ -44,9 +44,37 @@ class PokedexController: UICollectionViewController{
         navigationItem.title = "Pokedex"
         
         collectionView.register(PokedexCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gesture:)))
+       longPressGR.minimumPressDuration = 0.5
+       longPressGR.delaysTouchesBegan = true
+       self.collectionView.addGestureRecognizer(longPressGR)
+       
     }
+    
+    @objc func handleLongPress(gesture : UILongPressGestureRecognizer!) {
+       
+       
+        //change to back image
+        let p = gesture.location(in: self.collectionView)
+        guard let indexPath = self.collectionView.indexPathForItem(at: p) else {return}
+        guard let cell = self.collectionView.cellForItem(at: indexPath) as? PokedexCell else {return}
+        let pokemonus = pokemons[indexPath.row]
+
+        if gesture.state == .began {
+            cell.imageView.image = pokemonus.backImage
+        }
+        if gesture.state != .ended {
+            return
+        }
+        //reset image
+        if gesture.state == .ended {
+           cell.imageView.image = pokemonus.image
+        }
+                
+    
 }
 
+}
 
 extension PokedexController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,9 +84,14 @@ extension PokedexController{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PokedexCell
         cell.pokemon = pokemons[indexPath.item]
         return cell
-        
     }
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print ("selected")
+        if let cell = collectionView.cellForItem(at: indexPath) as? PokedexCell{
+            //let pokemonus = pokemons[indexPath.row]
+            //cell.imageView.image = pokemonus.backImage
+        }
+    }
 }
 
 extension PokedexController: UICollectionViewDelegateFlowLayout{

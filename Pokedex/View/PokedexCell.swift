@@ -32,7 +32,7 @@ class PokedexCell: UICollectionViewCell{
         view.layer.cornerRadius = 6
         return view
     }()
-    let imageView: UIImageView = {
+    var imageView: UIImageView = {
        let iv = UIImageView()
         //iv.backgroundColor = .groupTableViewBackground
         //iv.backgroundColor = #colorLiteral(red: 0.2050352991, green: 0.770994544, blue: 0.3534177542, alpha: 1)

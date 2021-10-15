@@ -13,7 +13,9 @@ class Pokemon{
     var id: Int?
     var name: String?
     var imageUrl: String?
+    var backImageUrl: String?
     var image: UIImage?
+    var backImage: UIImage?
     var weight: Int32?
     var height: Int32?
     var defense: Int32?
@@ -31,6 +33,9 @@ class Pokemon{
         }
         if let imageUrl = dictionary["imageUrl"] as? String{
             self.imageUrl = imageUrl
+        }
+        if let backImageUrl = dictionary["backImageUrl"] as? String{
+            self.backImageUrl = backImageUrl
         }
         if let weight = dictionary["weight"] as? Int32{
             self.weight = weight
